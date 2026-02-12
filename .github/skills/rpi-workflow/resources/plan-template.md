@@ -2,8 +2,14 @@
 
 ## 1) Strategy and Scope
 
-### Strategy
+### Approach
 <Describe the chosen approach and why it aligns with research.md>
+
+### Trade-offs
+<Why this approach was selected over alternatives>
+
+### Safe State
+<Define what "working" means when implementation is complete>
 
 ### In Scope
 - <Item>

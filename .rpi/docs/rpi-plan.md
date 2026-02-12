@@ -23,39 +23,27 @@ The output of this phase is a single markdown file named plan.md. This file serv
 
 ### Artifact Schema
 
-The plan.md file must strictly adhere to the following structure:  
+The plan.md file must follow the canonical template at
+`.github/skills/rpi-workflow/resources/plan-template.md`.
+
+Required section headings (exact):
+
 \# Plan: \[Ticket/Issue ID\]
+\#\# 1\) Strategy and Scope
+\#\# 2\) Architectural Decomposition
+\#\# 3\) Atomic Task List
+\#\# 4\) Verification Plan
+\#\# 5\) Validation - FACTS Criteria
 
-\#\# 1\. Strategy & Architecture  
-\*   \*\*Approach:\*\* (High-level summary of the chosen design pattern).  
-\*   \*\*Trade-offs:\*\* (Why this approach was chosen over alternatives).  
-\*   \*\*Safe State:\*\* (Definition of what "working" looks like).
+Required Strategy and Scope fields:
 
-\#\# 2\. Atomic Task List  
-(Every task must be independent enough to be executed by an AI with cleared context).
+- Approach
+- Trade-offs
+- Safe State
+- In Scope
+- Out of Scope
 
-\#\#\# Phase A: Scaffolding  
-\- \[ \] \*\*Task A.1\*\*: Create interface \`IUserConfig\` in \`src/types/config.ts\`.  
-    \- \*Input:\* \`research.md\` Section 3\.  
-    \- \*Verification:\* File exists and exports interface.  
-\- \[ \] \*\*Task A.2\*\*: Add feature flag \`ENABLE\_NEW\_FLOW\` to \`src/config/flags.ts\`.  
-    \- \*Verification:\* \`npm test src/config/flags.spec.ts\` passes.
-
-\#\#\# Phase B: Core Logic  
-\- \[ \] \*\*Task B.1\*\*: Implement \`calculateTax\` function in \`src/utils/tax.ts\`.  
-    \- \*Constraint:\* Must handle negative inputs as defined in Research.  
-    \- \*Verification:\* Unit test \`src/utils/tax.spec.ts\` passes.
-
-\#\# 3\. Verification Plan  
-\*   \*\*Automated Tests:\*\* (List of new test files to be created).  
-\*   \*\*Manual Verification:\*\* (Specific steps to verify in the UI/Console).
-
-\#\# 4\. Validation: The FACTS Score  
-\*   \*\*Feasible:\*\* Resources/Skills available? \[Yes/No\]  
-\*   \*\*Atomic:\*\* Are tasks single-responsibility? \[Yes/No\]  
-\*   \*\*Clear:\*\* Is ambiguity zero? \[Yes/No\]  
-\*   \*\*Testable:\*\* binary success criteria? \[Yes/No\]  
-\*   \*\*Scoped:\*\* Boundaries defined? \[Yes/No\]
+Each atomic task must include Action and Verification with explicit Pass/Fail criteria.
 
 ## 4\. Validation Protocol (The FACTS Gate)
 
@@ -74,4 +62,3 @@ Once the FACTS score is satisfying (Pass), the workflow triggers a **Handoff** S
 * **Source Agent:** planning-agent  
 * **Target Agent:** implementation-agent  
 * **Prompt:** "Plan validated. Execute Task A.1. Remember to run tests after every step."
-

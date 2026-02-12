@@ -23,37 +23,19 @@ The output of this phase is a single markdown file named research.md. This file 
 
 ### Artifact Schema
 
-The research.md file must strictly adhere to the following structure:  
+The research.md file must follow the canonical template at
+`.github/skills/rpi-workflow/resources/research-template.md`.
+
+Required section headings (exact):
+
 \# Research: \[Ticket/Issue ID\]
-
-\#\# 1\. Problem Statement Analysis  
-\*   \*\*Trigger:\*\* (The bug report, feature request, or alert that started this).  
-\*   \*\*User Intent:\*\* (What the user actually wants, independent of how they asked for it).  
-\*   \*\*Ambiguity:\*\* (List of initially vague terms clarified during research).
-
-\#\# 2\. Code Archaeology (The "Blast Radius")  
-\*   \*\*Entry Points:\*\*  
-    \*   \`src/api/routes.ts:45\` \- Request handler for the feature.  
-\*   \*\*Core Logic:\*\*  
-    \*   \`src/services/payment.ts:200\` \- Where the calculation actually happens.  
-\*   \*\*Data Models:\*\*  
-    \*   \`src/db/schema.prisma:50\` \- The database constraint affecting this issue.
-
-\#\# 3\. System Constraints  
-\*   \*\*Hard Constraints:\*\* (e.g., "The API response must remain \< 200ms", "Cannot update dependency X due to legacy support").  
-\*   \*\*Implicit Contracts:\*\* (e.g., "This function assumes input is always sanitized by the middleware").
-
-\#\# 4\. Existing Patterns (Exemplars)  
-\*   \*\*Reference Implementation:\*\* (Copy-paste a snippet of \*existing\* code that solves a similar problem correctly. Do NOT write new code).  
-    \`\`\`typescript  
-    // existing code from src/utils/validation.ts  
-    export function validateId(id: string) { ... }  
-    \`\`\`
-
-\#\# 5\. Validation: The FAR Score  
-\*   \*\*Factual:\*\* Are all claims cited? \[Yes/No\]  
-\*   \*\*Actionable:\*\* Can a plan be built solely from this doc? \[Yes/No\]  
-\*   \*\*Relevant:\*\* Does this strictly address the problem statement? \[Yes/No\]
+\#\# 1\) Problem Statement Analysis
+\#\# 2\) Code Archaeology / Blast Radius
+\#\# 3\) Conceptual Scope
+\#\# 4\) System Constraints
+\#\# 5\) Existing Patterns and Exemplars
+\#\# 6\) Validation - FAR Criteria
+\#\# 7\) Notes on Unknowns
 
 ## 4\. Validation Protocol (The FAR Gate)
 
@@ -76,4 +58,3 @@ Once the FAR score is satisfying (Pass), the workflow triggers a **Handoff** Sou
 * **Source Agent:** research-agent (Read-Only)  
 * **Target Agent:** planning-agent (Architectural)  
 * **Prompt:** "Research complete and validated. Ingest research.md and generate an atomic implementation plan."
-

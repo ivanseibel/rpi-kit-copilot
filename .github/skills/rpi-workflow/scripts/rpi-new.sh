@@ -59,36 +59,18 @@ fi
 
 mkdir -p "$project_dir"
 
-# Create research.md template
-cat > "${project_dir}/research.md" <<EOF
-# Research - ${title}
+# Render research.md from the shared template resource.
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+research_template="${script_dir}/../resources/research-template.md"
 
-## Problem Statement Analysis
+if [[ ! -f "$research_template" ]]; then
+  echo "Error: research template not found at ${research_template}" >&2
+  exit 1
+fi
 
-- <Describe the problem to research>
-
-## Conceptual Scope
-
-- In scope: <Item>
-- Out of scope: <Item>
-
-## System Constraints
-
-- <Constraint>
-
-## Existing Patterns and Exemplars
-
-- <Reference existing code or docs>
-
-## Validation - FAR Criteria
-
-- Factual: <Why the content is factual>
-- Actionable: <Why the content is actionable>
-- Relevant: <Why the content is relevant>
-
-## Notes on Unknowns
-
-- <Unknown or assumption>
-EOF
+{
+  printf "# Research - %s\n\n" "$title"
+  tail -n +2 "$research_template"
+} > "${project_dir}/research.md"
 
 echo "Created .rpi/projects/${project_dir_name}/research.md"

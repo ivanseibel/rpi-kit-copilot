@@ -204,9 +204,13 @@ See `AGENTS.md` for detailed role definitions. Summary:
 
 ## Templates and Examples
 
+**Research Template:**
+- Location: `.github/skills/rpi-workflow/resources/research-template.md`
+- Use when creating new `research.md` files
+
 **Plan Template:**
 - Location: `.github/skills/rpi-workflow/resources/plan-template.md`
-- Use when creating new `plan.md` files
+- Use when creating new `plan.md` files (includes Approach, Trade-offs, Safe State)
 
 **Prompt Example:**
 - Location: `.github/skills/rpi-workflow/resources/prompts/plan-example.md`

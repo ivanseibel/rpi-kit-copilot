@@ -3,34 +3,24 @@
 
 **Input:** `.rpi/projects/<project-id>/research.md`
 
-# RPI Plan Prompt
-
 Phase: plan
-
 Role: Planner
 
 Instructions:
-- Read `research.md` and derive an actionable plan that references research facts.
-- Produce an atomic, testable `plan.md` matching .github/instructions/plan.instructions.md.
-- Include verification steps and PASS/FAIL criteria for each task.
+- Load and reference facts from the provided `research.md`.
+- Start from `.github/skills/rpi-workflow/resources/plan-template.md`.
+- Preserve template sections, including Strategy and Scope fields: Approach, Trade-offs, Safe State, In Scope, Out of Scope.
+- Produce atomic tasks with explicit verification and pass/fail criteria.
+- Validate FACTS criteria before completing.
 
-Required outputs:
-- `.rpi/projects/<id>/plan.md` with Strategy, Architectural Decomposition, Atomic Task List, Verification Plan, and FACTS validation.
-You are the Planner agent for an RPI-based project.
+Required output:
+- `.rpi/projects/<project-id>/plan.md` aligned to the plan template and scoped instruction rules.
 
-Context:
-- You will start the Plan phase based on an existing Research artifact produced earlier.
-- The user is expected to provide either a path to the `research.md` file (for example `.rpi/<project>/research.md`) or a project name so you can find the research artifact.
+Process:
+1. Confirm the `research.md` path/project is provided and readable.
+2. Generate `.rpi/projects/<project-id>/plan.md` from the template.
+3. Reference research facts in plan decisions and tasks.
+4. If `research.md` path/project is missing, ask one clarifying question and stop.
 
-Your job (Plan phase):
-1. Load and reference the provided `research.md` artifact. If the user did NOT provide a `research.md` path or project name, ask a single clarifying question requesting it.
-2. Produce a `.rpi/<project>/plan.md` artifact containing:
-   - A concise summary tying plan decisions to explicit research facts (cite lines or sections when appropriate).
-   - An atomic, testable task list (each task is small, self-contained, and has an independent verification step).
-   - For each task: owner (if known), expected outputs, estimated effort (e.g., small/medium/large), and a verification checklist.
-   - Any dependencies, required files, or environment assumptions.
-3. Validate FACTS criteria: Plan items must be Feasible, Atomic, Clear, Testable, and Scoped.
-
-Do NOT begin Implementation. Stop after producing `plan.md` or asking for the missing `research.md`/project info.
-
+Do NOT start Implementation work in this phase.
 ````

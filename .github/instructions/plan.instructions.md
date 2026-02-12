@@ -11,12 +11,13 @@ description: Plan phase constraints for RPI workflow - enforces atomic task deco
 - **Must:** Reference facts from `research.md`—do not introduce assumptions not grounded in research.
 - **Must:** Validate plan output against FACTS criteria (Feasible, Atomic, Clear, Testable, Scoped) before completing.
 - **Must:** Include pass/fail criteria for every verification step.
+- **Must:** Use `.github/skills/rpi-workflow/resources/plan-template.md` as the starting structure.
 
 ## Expected Output
 
 Produce `plan.md` in `.rpi/projects/<project-id>/plan.md` with the following sections:
 
-1. **Strategy and Scope** - Chosen approach, why it aligns with research, what's in/out of scope.
+1. **Strategy and Scope** - Must include Approach, Trade-offs, Safe State, In Scope, and Out of Scope.
 2. **Architectural Decomposition** - High-level component breakdown (if applicable).
 3. **Atomic Task List** - Checkbox list with verification steps and explicit pass/fail criteria.
 4. **Verification Plan** - How will correctness be enforced (automated, manual, CI)?

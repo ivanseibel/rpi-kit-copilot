@@ -67,6 +67,7 @@ bash .github/skills/rpi-workflow/scripts/rpi-new.sh "Authentication Refactor"
 
 ## Resources
 
+- [Research Template](resources/research-template.md) - Boilerplate structure for research.md files.
 - [Plan Template](resources/plan-template.md) - Boilerplate structure for plan.md files.
 - [Prompt Examples](resources/prompts/plan-example.md) - Sample prompts for phase transitions.
 - [Validation Guide](resources/validation/README.md) - How to check FAR and FACTS criteria.
