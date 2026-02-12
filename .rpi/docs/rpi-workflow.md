@@ -22,6 +22,8 @@ This creates `.rpi/projects/NNNN-my-project/research.md`, where `NNNN` is the ne
 
 Note: There is no automatic hook to create project directories; running the scaffolder is an explicit step.
 
+Note: The kit repository itself may contain example projects under `.rpi/projects/`, but the installer intentionally excludes `.rpi/projects/**` when copying into target repositories.
+
 ## Artifact Locations
 
 All RPI artifacts are repository-backed and version controlled:

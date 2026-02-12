@@ -17,6 +17,7 @@ This inventory enumerates the required RPI workflow artifacts and their dependen
 ## Skills (with all subfolders)
 
 - .github/skills/e2e-testing/
+- .github/skills/github-mcp-issues/
 - .github/skills/rpi-workflow/
 - .github/skills/skill-manager/
 
@@ -39,8 +40,9 @@ This inventory enumerates the required RPI workflow artifacts and their dependen
 
 ## RPI Projects
 
-- .rpi/projects/
- - .rpi/projects/rpikit/research.md
+- `.rpi/projects/` is intentionally excluded from installation into target repositories.
+- This kit repository contains example projects under `.rpi/projects/` for development and demonstration only.
+- In target repositories, `.rpi/projects/<project-id>/...` is created when you start a new project (for example via the `rpi-new.sh` scaffolder).
 
 ## Installer
 

@@ -110,3 +110,4 @@ During install, only the RPI section is written to the target file. Project-spec
 
 - The installer only copies the RPI kit artifacts and referenced dependencies.
 - The kit includes validation workflow, instructions, prompts, skills, and RPI docs.
+- The kit repository may contain example RPI projects under `.rpi/projects/`, but the installer intentionally does **not** copy anything under `.rpi/projects/` into target repositories.
