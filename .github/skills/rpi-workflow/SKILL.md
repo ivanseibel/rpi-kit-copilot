@@ -42,7 +42,7 @@ Invoke this skill when:
 
 Location: `.github/skills/rpi-workflow/scripts/rpi-new.sh`
 
-Creates a new RPI project directory structure with sequential prefix numbering.
+Creates a new RPI project directory structure with a date prefix (yyyymmdd).
 
 **Usage:**
 ```bash
@@ -51,8 +51,8 @@ bash .github/skills/rpi-workflow/scripts/rpi-new.sh "Project Title"
 
 **What it does:**
 - Validates `.rpi/` directory exists in repository root
-- Calculates next sequential prefix (e.g., `0004`) by scanning existing directories
-- Creates `.rpi/projects/NNNN-project-slug/research.md` with standard template
+- Calculates a date prefix (e.g., `20260213`)
+- Creates `.rpi/projects/yyyymmdd-project-slug/research.md` with standard template
 - Generates URL-friendly slug from project title
 
 **Dependencies:**
@@ -61,7 +61,7 @@ bash .github/skills/rpi-workflow/scripts/rpi-new.sh "Project Title"
 
 **Example:**
 ```bash
-# Creates .rpi/projects/0004-authentication-refactor/research.md
+# Creates .rpi/projects/20260213-authentication-refactor/research.md
 bash .github/skills/rpi-workflow/scripts/rpi-new.sh "Authentication Refactor"
 ```
 

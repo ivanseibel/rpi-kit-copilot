@@ -19,24 +19,8 @@ if [[ ! -d "$projects_root" ]]; then
   exit 1
 fi
 
-# Find max prefix from existing NNNN- directories
-max_prefix=0
-prefix_regex='^([0-9]{4})-'
-
-while IFS= read -r entry; do
-  [[ -z "$entry" ]] && continue
-  if [[ "$entry" =~ $prefix_regex ]]; then
-    value="${BASH_REMATCH[1]}"
-    # Remove leading zeros for arithmetic
-    value=$((10#$value))
-    if (( value > max_prefix )); then
-      max_prefix=$value
-    fi
-  fi
-done < <(find "$projects_root" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)
-
-# Calculate next prefix
-next_prefix=$(printf "%04d" $((max_prefix + 1)))
+# Calculate date prefix (yyyymmdd)
+date_prefix=$(date +%Y%m%d)
 
 # Generate slug from title
 # Convert to lowercase, replace non-alphanumeric with hyphens, trim leading/trailing hyphens
@@ -49,7 +33,7 @@ if [[ -z "$slug" ]]; then
   exit 1
 fi
 
-project_dir_name="${next_prefix}-${slug}"
+project_dir_name="${date_prefix}-${slug}"
 project_dir="${projects_root}/${project_dir_name}"
 
 if [[ -d "$project_dir" ]]; then

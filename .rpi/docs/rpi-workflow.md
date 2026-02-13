@@ -12,13 +12,13 @@ The RPI workflow is a three-phase pattern for systematic software development:
 
 ### Create a New RPI Project
 
-Use the scaffolder to create a new project directory with the required sequential prefix:
+Use the scaffolder to create a new project directory with the required date prefix:
 
 ```bash
 bash .github/skills/rpi-workflow/scripts/rpi-new.sh "My Project"
 ```
 
-This creates `.rpi/projects/NNNN-my-project/research.md`, where `NNNN` is the next sequential prefix.
+This creates `.rpi/projects/yyyymmdd-my-project/research.md`, where `yyyymmdd` is the current date.
 
 Note: There is no automatic hook to create project directories; running the scaffolder is an explicit step.
 
