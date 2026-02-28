@@ -28,18 +28,14 @@ jobs:
 
       - name: Validate governance files
         run: |
-          echo "Checking AGENTS.md files..."
-          test -f AGENTS.md || { echo "❌ Missing root AGENTS.md"; exit 1; }
+          echo "Checking .rpi/AGENTS.md governance..."
           test -f .rpi/AGENTS.md || { echo "❌ Missing .rpi/AGENTS.md"; exit 1; }
 
           # Check for required table with role names
-          grep -q "Researcher" AGENTS.md || { echo "❌ Missing Researcher role"; exit 1; }
-          grep -q "Planner" AGENTS.md || { echo "❌ Missing Planner role"; exit 1; }
-          grep -q "Implementer" AGENTS.md || { echo "❌ Missing Implementer role"; exit 1; }
-
-          # Verify files are identical
-          diff AGENTS.md .rpi/AGENTS.md || { echo "❌ AGENTS.md files not identical"; exit 1; }
-          echo "✅ Governance files valid"
+          grep -q "Researcher" .rpi/AGENTS.md || { echo "❌ Missing Researcher role"; exit 1; }
+          grep -q "Planner" .rpi/AGENTS.md || { echo "❌ Missing Planner role"; exit 1; }
+          grep -q "Implementer" .rpi/AGENTS.md || { echo "❌ Missing Implementer role"; exit 1; }
+          echo "✅ Governance file valid"
 
       - name: Validate scoped instruction files
         run: |
@@ -143,7 +139,7 @@ jobs:
           # Check for required checklist items
           grep -q "research.md validated" .rpi/docs/handoff-checklist.md || { echo "❌ Missing research.md validated item"; exit 1; }
           grep -q "plan.md present and FACTS affirmed" .rpi/docs/handoff-checklist.md || { echo "❌ Missing plan.md FACTS item"; exit 1; }
-          grep -q "AGENTS.md reviewed" .rpi/docs/handoff-checklist.md || { echo "❌ Missing AGENTS.md reviewed item"; exit 1; }
+          grep -q ".rpi/AGENTS.md reviewed" .rpi/docs/handoff-checklist.md || { echo "❌ Missing .rpi/AGENTS.md reviewed item"; exit 1; }
           grep -q "CI validation passing" .rpi/docs/handoff-checklist.md || { echo "❌ Missing CI validation item"; exit 1; }
           grep -q "SIGNOFF" .rpi/docs/handoff-checklist.md || { echo "❌ Missing SIGNOFF documentation"; exit 1; }
 

@@ -17,7 +17,8 @@ What gets installed and how it works:
 - **Prompt entry points:** `.github/prompts/rpikit.{research,plan,implement}.prompt.md` gives you `/rpikit.research`, `/rpikit.plan`, and `/rpikit.implement` in Copilot Chat as a consistent way to start each phase.
 - **Copilot skills:** `.github/skills/**/SKILL.md` packages reusable “how to do X” playbooks that Copilot can load alongside instructions (for example, `rpi-workflow` for templates/validation guidance, plus any project-specific skills you want to ship with the kit).
 - **VS Code wiring:** `.vscode/settings.json` enables instruction file loading (`github.copilot.chat.codeGeneration.useInstructionFiles`).
-- **Governance + artifacts:** `AGENTS.md` (and `.rpi/AGENTS.md`) defines roles, handoffs, and recursion rules; `.rpi/` holds docs, example projects, and helper scripts.
+- **Governance + artifacts:** `.rpi/AGENTS.md` defines workflow roles, handoffs, and recursion rules for target repos; `.rpi/` holds docs, example projects, and helper scripts.
+- **Kit-maintenance guidance (kit repo only):** `AGENTS.md`.
 - **Validation automation:** `.github/workflows/rpi-validate.yml` checks that the required files and structure exist (instructions, prompts, skills, docs, governance) so the workflow remains consistent over time.
 
 ## Install
@@ -118,7 +119,7 @@ This workflow installs Copilot scaffold files into a dedicated Git worktree with
 
 ### Problem and Goal
 
-When you want RPI Copilot workflow support for a project, scaffold files are needed on disk (`.github/`, `.rpi/`, `.vscode/`, `AGENTS.md`). In some setups, you do not want those files committed or pushed.
+When you want RPI Copilot workflow support for a project, scaffold files are needed on disk (`.github/`, `.rpi/`, `.vscode/`). In some setups, you do not want those files committed or pushed.
 
 Goal:
 
@@ -303,7 +304,6 @@ Replace the Copilot scaffold path list with the Codex-specific list from the Cod
 Likely Codex prefixes to validate:
 
 - `/.agents/skills/`
-- `/AGENTS.md`
 - `/.rpi/AGENTS.md`
 - `/.rpi/docs/`
 - `/.github/workflows/rpi-validate.yml`

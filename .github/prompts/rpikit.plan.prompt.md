@@ -22,5 +22,5 @@ Process:
 3. Reference research facts in plan decisions and tasks.
 4. If `research.md` path/project is missing, ask one clarifying question and stop.
 
-Do NOT start Implementation work in this phase.
+Do NOT start Implementation work in this phase. The ONLY file you are permitted to write is `plan.md`. Producing any other artifact is a critical phase violation; stop immediately and notify the operator.
 ````

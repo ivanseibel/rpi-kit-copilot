@@ -100,7 +100,6 @@ check_dir ".github/skills/rpi-workflow"
 check_file ".github/skills/rpi-workflow/SKILL.md"
 
 # Governance
-check_file "AGENTS.md"
 check_file ".rpi/AGENTS.md"
 
 # Prompts

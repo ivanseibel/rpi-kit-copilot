@@ -16,7 +16,7 @@ Constraint,Definition,Technical Enforcement
 No Production Code,The Planner must not write application code. It only writes instructions for code.,"Agent tools list limited to \['search', 'fetch'\] (read-only) Source: 3."  
 Input Strictness,Planning cannot begin without a valid research.md.,"System prompt: ""Refuse to plan until research.md is ingested and validated."""  
 Atomic Output,"The output must be a checklist where every item is a single, verifiable action.",Custom Instructions requiring a checkbox format \[ \] for all tasks.
-
+Single-Artifact Output,"The only file the Planner may write is plan.md. No supplemental markdowns, drafts, implementation previews, or extra checklists. Writing any additional file is a critical phase violation.","Governance: stop immediately and notify the operator if any other file is produced."
 ## 3\. The Plan Artifact (plan.md)
 
 The output of this phase is a single markdown file named plan.md. This file serves as the **executable directive** for the Implementation phase.

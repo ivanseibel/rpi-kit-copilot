@@ -33,5 +33,5 @@ Process:
 
 > **Never overwrite artifacts from a previous session.** Reuse of an existing project folder requires explicit operator authorization every time.
 
-Do NOT start Plan or Implementation work in this phase.
+Do NOT start Plan or Implementation work in this phase. The ONLY file you are permitted to write is `research.md`. Producing any other artifact—regardless of intent—is a critical phase violation; stop immediately and notify the operator.
 ````

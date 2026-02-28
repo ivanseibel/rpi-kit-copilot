@@ -40,7 +40,7 @@ Before transitioning from Plan to Implement phase, verify:
 
 - [ ] **FACTS criteria pass** - Plan is Feasible (within constraints), Atomic (independent tasks), Clear (unambiguous), Testable (pass/fail criteria), Scoped (bounded)
 
-- [ ] **AGENTS.md reviewed** - All stakeholders understand role boundaries and handoff rules
+- [ ] **.rpi/AGENTS.md reviewed** - All stakeholders understand role boundaries and handoff rules
 
 - [ ] **Stakeholder sign-off** - Implementer and reviewers acknowledge plan acceptance
 
@@ -123,7 +123,7 @@ If any handoff criteria cannot be met:
 
 ## Additional Resources
 
-- **Agent Roles:** See `AGENTS.md` for detailed role definitions and constraints
+- **Agent Roles:** See `.rpi/AGENTS.md` for detailed role definitions and constraints
 - **Validation Guide:** See `.github/skills/rpi-workflow/resources/validation/README.md` for FAR and FACTS criteria details
 - **Operator Guide:** See `.rpi/docs/rpi-workflow.md` for comprehensive workflow documentation
 - **Methodology Docs:** See `.rpi/docs/` for detailed RPI phase protocols

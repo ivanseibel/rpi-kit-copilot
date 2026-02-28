@@ -23,12 +23,14 @@ Invoke this skill when:
 - Maintain read-only posture—no solution proposals.
 - Cite all sources inline (e.g., `source.md — Section 2`).
 - Validate against FAR: Factual, Actionable, Relevant.
+- **You MUST NOT create or modify any file other than `research.md`. Producing any additional artifact—markdown, draft, note, checklist, or implementation file—is a critical phase violation. Stop immediately and report to the operator.**
 
 **Plan Phase:**
 - Produce `.rpi/projects/<project-id>/plan.md` following the template.
 - Reference facts from `research.md`—no unsupported assumptions.
 - Decompose into atomic tasks with pass/fail verification.
 - Validate against FACTS: Feasible, Atomic, Clear, Testable, Scoped.
+- **You MUST NOT create or modify any file other than `plan.md`. Producing any additional artifact is a critical phase violation. Stop immediately and report to the operator.**
 
 **Implement Phase:**
 - Execute tasks from `plan.md` sequentially.

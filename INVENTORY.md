@@ -23,8 +23,11 @@ This inventory enumerates the required RPI workflow artifacts and their dependen
 
 ## Governance
 
-- AGENTS.md
 - .rpi/AGENTS.md
+
+## Kit-Only Guidance (Not Installed to Targets)
+
+- AGENTS.md
 
 ## VS Code Settings
 

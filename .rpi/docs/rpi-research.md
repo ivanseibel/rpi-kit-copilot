@@ -16,7 +16,7 @@ Constraint,Definition,Technical Enforcement
 Read-Only Access,"The agent/developer may read files, grep logs, and search docs, but MUST NOT modify a single line of code.","Configure Custom Agent with tools: \['search', 'fetch'\] only (exclude editing tools) Source: 3, 5."  
 No Solutioning,"The output must describe what exists, not what will be built. No architecture diagrams or pseudocode.",Custom Instructions in .agent.md explicitly forbidding generation of fix proposals Source: 6\.  
 Citations Required,"Every claim regarding system behavior must be backed by a file path, line number, or documentation link.","System prompt requirement: ""All assertions must be cited."""
-
+Single-Artifact Output,"The only file the Researcher may write is research.md. No supplemental markdowns, drafts, notes, checklists, or implementation previews. Writing any additional file is a critical phase violation.","Governance: stop immediately and notify the operator if any other file is produced."
 ## 3\. The Research Artifact (research.md)
 
 The output of this phase is a single markdown file named research.md. This file serves as the **immutable input** for the Plan phase.

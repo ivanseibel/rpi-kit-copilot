@@ -13,6 +13,7 @@ description: Plan phase constraints for RPI workflow - enforces atomic task deco
 - **Must:** Include pass/fail criteria for every verification step.
 - **Must:** Use `.github/skills/rpi-workflow/resources/plan-template.md` as the starting structure.
 - **Must not:** Overwrite an existing `plan.md`. If `plan.md` already exists at the target path, stop immediately, report the conflict to the operator, and do not proceed without explicit operator authorization (`reuse project <project-id>` or `continue project <project-id>`).
+- **Must not:** Create or modify any file other than the target `plan.md`. Any additional artifact is a critical phase violation. Stop immediately and report to the operator.
 
 ## Expected Output
 

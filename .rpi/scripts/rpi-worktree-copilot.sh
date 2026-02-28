@@ -180,7 +180,6 @@ SCAFFOLD_CHECK_PATHS="
 .github/skills
 .github/workflows/rpi-validate.yml
 .vscode/settings.json
-AGENTS.md
 .rpi/AGENTS.md
 .rpi/docs
 .rpi/scripts/check-vscode-load.sh
@@ -213,7 +212,6 @@ append_exclude_rule "$EXCLUDE_FILE" "/.github/prompts/"
 append_exclude_rule "$EXCLUDE_FILE" "/.github/skills/"
 append_exclude_rule "$EXCLUDE_FILE" "/.github/workflows/rpi-validate.yml"
 append_exclude_rule "$EXCLUDE_FILE" "/.vscode/settings.json"
-append_exclude_rule "$EXCLUDE_FILE" "/AGENTS.md"
 append_exclude_rule "$EXCLUDE_FILE" "/.rpi/AGENTS.md"
 append_exclude_rule "$EXCLUDE_FILE" "/.rpi/docs/"
 append_exclude_rule "$EXCLUDE_FILE" "/.rpi/scripts/check-vscode-load.sh"
@@ -243,7 +241,6 @@ while IFS= read -r path; do
     .github/skills/*|\
     .github/workflows/rpi-validate.yml|\
     .vscode/settings.json|\
-    AGENTS.md|\
     .rpi/AGENTS.md|\
     .rpi/docs/*|\
     .rpi/scripts/check-vscode-load.sh|\

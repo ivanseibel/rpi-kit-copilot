@@ -5,7 +5,7 @@ const path = require("node:path");
 const readline = require("node:readline");
 
 const VALID_MODES = new Set(["skip", "overwrite", "prompt"]);
-const ROOT_PREFIXES = [".github/", ".vscode/", ".rpi/", "AGENTS.md"];
+const ROOT_PREFIXES = [".github/", ".vscode/", ".rpi/"];
 
 const EXCLUDED_REPO_REL_PREFIXES = [".rpi/projects/"];
 const EXCLUDED_REPO_REL_EXACT = new Set([".rpi/projects"]);
@@ -221,40 +221,6 @@ function extractRpiSection(content) {
 	return `${output.join("\n")}\n`;
 }
 
-function extractKitDocumentation(content) {
-	// Extract only Section A (Kit Documentation) from AGENTS.md
-	// Content between <!-- RPI:KIT-DOCUMENTATION:START --> and <!-- RPI:KIT-DOCUMENTATION:END -->
-	const lines = content.split(/\r?\n/);
-	const output = [];
-	let inKit = false;
-	let startLine = -1;
-	let endLine = -1;
-
-	for (let i = 0; i < lines.length; i++) {
-		const line = lines[i];
-		if (line.includes("<!-- RPI:KIT-DOCUMENTATION:START -->")) {
-			inKit = true;
-			startLine = i;
-			continue;
-		}
-		if (line.includes("<!-- RPI:KIT-DOCUMENTATION:END -->")) {
-			inKit = false;
-			endLine = i;
-			continue;
-		}
-		if (inKit) {
-			output.push(line);
-		}
-	}
-
-	// Debug: log what was found
-	if (process.env.DEBUG_RPI) {
-		console.error(`[DEBUG] KIT-DOCUMENTATION found at lines ${startLine}-${endLine}, extracted ${output.length} lines`);
-	}
-
-	return `${output.join("\n")}\n`;
-}
-
 async function writeTemplate({
 	content,
 	rel,
@@ -402,7 +368,6 @@ async function main() {
 		path.join(kitRoot, ".github"),
 		path.join(kitRoot, ".vscode"),
 		path.join(kitRoot, ".rpi"),
-		path.join(kitRoot, "AGENTS.md"),
 	];
 
 	for (const item of includeRoots) {
@@ -498,34 +463,6 @@ async function main() {
 			continue;
 		}
 		if (templateTargets.has(rel)) {
-			continue;
-		}
-
-		// Special handling for AGENTS.md: extract only Kit Documentation section
-		if (rel === "AGENTS.md") {
-			const content = await fs.promises.readFile(src, "utf8");
-			if (process.env.DEBUG_RPI) {
-				console.error(`[DEBUG] Reading AGENTS.md from ${src}`);
-				console.error(`[DEBUG] Content length: ${content.length}`);
-				console.error(`[DEBUG] First 300 chars: ${content.substring(0, 300)}`);
-				const hasStartMarker = content.includes("RPI:KIT-DOCUMENTATION:START");
-				const hasEndMarker = content.includes("RPI:KIT-DOCUMENTATION:END");
-				console.error(`[DEBUG] Has START marker: ${hasStartMarker}, Has END marker: ${hasEndMarker}`);
-			}
-			const kitContent = extractKitDocumentation(content);
-			if (process.env.DEBUG_RPI) {
-				console.error(`[DEBUG] After extraction, content length: ${kitContent.length}`);
-				console.error(`[DEBUG] First 200 chars: ${kitContent.substring(0, 200)}`);
-			}
-			const override = fileOverrides.get(rel);
-			await writeTemplate({
-				content: kitContent,
-				rel,
-				destRoot: targetRoot,
-				mode,
-				override,
-				dryRun,
-			});
 			continue;
 		}
 
